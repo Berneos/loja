@@ -18,10 +18,27 @@
             </div>
             <div class="card-body">
 
+              <?php if ($message = $this->session->flashdata('sucesso')) : ?>
+
+                <div class="alert alert-success alert-dismissible show fade">
+                  <div class="alert-icon"><i class=" fa fa-check-circle fa-lh"></i></div>
+                  <div class="alert-body">
+                    <div class="alerti-title">Perfeito!</div>
+                    <button class="close" data-dismiss="alert">
+                      <span>&times;</span>
+                    </button>
+                    <?php echo $message; ?>
+                  </div>
+                </div>
+
+              <?php endif; ?>
+
               <?php if ($message = $this->session->flashdata('erro')) : ?>
 
-                <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert alert-danger alert-has-icon alert-dismissible show fade">
+                  <div class="alert-icon"><i class ="fa fa-exclamation-circle fa-lg"></i></div>
                   <div class="alert-body">
+                    <div class="alert-title">Atenção</div>
                     <button class="close" data-dismiss="alert">
                       <span>&times;</span>
                     </button>

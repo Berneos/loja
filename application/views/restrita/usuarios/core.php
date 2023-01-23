@@ -46,25 +46,29 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Nome</label>
-                    <input type="text" name="first_name" class="form-control" placeholder="Insira nome aqui" value="<?php echo (isset($usuario) ? $usuario->first_name : '');    ?>">
+                    <input type="text" name="first_name" class="form-control" placeholder="Insira nome aqui" value="<?php echo (isset($usuario) ? $usuario->first_name : set_value('first_name'));    ?>">
                     <?php echo form_error('first_name', '<div class="text-danger">', '</div>'); ?>
                   </div>
                   <div class="form-group col-md-6">
                     <label>Sobrenome</label>
-                    <input type="text" name="last_name" class="form-control" placeholder="Insira sobrenome aqui" value="<?php echo (isset($usuario) ? $usuario->last_name : '');    ?>">
+                    <input type="text" name="last_name" class="form-control" placeholder="Insira sobrenome aqui" value="<?php echo (isset($usuario) ? $usuario->last_name : set_value('last_name'));    ?>">
+                    <?php echo form_error('last_name', '<div class="text-danger">', '</div>'); ?>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputEmail14">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email aqui" value="<?php echo (isset($usuario) ? $usuario->email : '');    ?>">
+                    <input type="email" name="email" class="form-control" placeholder="Email aqui" value="<?php echo (isset($usuario) ? $usuario->email : set_value('email'));    ?>">
+                    <?php echo form_error('email', '<div class="text-danger">', '</div>'); ?>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPassword4">Senha</label>
                     <input type="password" name="password" class="form-control" placeholder="Senha">
+                    <?php echo form_error('password', '<div class="text-danger">', '</div>'); ?>
                   </div>
 
                   <div class="form-group col-md-6">
                     <label>Usuário</label>
-                    <input type="text" name="username" class="form-control" placeholder="Insira seu usuário" value="<?php echo (isset($usuario) ? $usuario->username : '');    ?>">
+                    <input type="text" name="username" class="form-control" placeholder="Insira seu usuário" value="<?php echo (isset($usuario) ? $usuario->username : set_value('username'));    ?>">
+                    <?php echo form_error('username', '<div class="text-danger">', '</div>'); ?>
                   </div>
 
                   <div class="form-group col-md-6">
