@@ -75,7 +75,7 @@ class Usuarios extends CI_Controller
                 
                 }
                 
-                $this->form_validation->set_rules('first_name','Nome','trim│required');
+                $this->form_validation->set_rules('first_name', 'Nome', 'trim|required');
              
                 if($this->form_validation->run()) {
              
