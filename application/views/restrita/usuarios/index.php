@@ -13,8 +13,9 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
+            <div class="card-header d-block">
               <h4><?php echo $titulo;     ?></h4>
+              <a class="btn btn-primary float-right" href="<?php echo base_url('restrita/usuarios/core');?>">Cadastrar</a>
             </div>
             <div class="card-body">
 
@@ -57,26 +58,27 @@
                       </th>
                       <th style="text-align: center;">Nome Completo</th>
                       <th style="text-align: center;">E-mail</th>
-                      <th style="text-align: center;">Usuário</th>
+                      <th style="text-align: center;">Perfil de acesso</th>
                       <th style="text-align: center;">Status</th>
                       <th class="nosort" ; style="text-align: center" ;>Ações</th>
                     </tr>
                   </thead>
                   <tbody>
+                  <?php foreach ($usuarios as $usuario) :  ?>
                     <tr>
 
 
-                      <?php foreach ($usuarios as $usuario) :  ?>
+                      
 
                         <td> <?php echo $usuario->id; ?> </td>
                         <td> <?php echo $usuario->first_name . ' '  . $usuario->last_name; ?> </td>
                         <td> <?php echo $usuario->email; ?> </td>
-                        <td> <?php echo $usuario->username; ?> </td>
+                        <td> <?php echo ($this->ion_auth->is_admin($usuario->id) ? 'Administrador' : 'Clientes');?> </td>
                         <td> <?php echo ($usuario->active == 1 ? '<span class="badge badge-success">Ativo</span>' : '<span class="badge badge-danger">Inativo</span>'); ?> </td>
 
                         <td>
                           <a href="<?php echo base_url('restrita/usuarios/core/' . $usuario->id); ?>" class="btn btn-primary">Atualizar</a>
-                          <a href="#" class="btn btn-danger">Excluir</a>
+                          <a href="<?php echo base_url('restrita/usuarios/delete/'.$usuario->id); ?>" class="btn btn-danger delete" data-confirm="Tem certeza da exclusão?">Excluir</a>
                         </td>
 
                       <?php endforeach;      ?>
